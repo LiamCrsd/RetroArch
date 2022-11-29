@@ -7133,6 +7133,14 @@ MSG_HASH(
    "Charge une sauvegarde instantanée depuis l'emplacement actuellement sélectionné."
    )
 MSG_HASH(
+   MENU_ENUM_LABEL_VALUE_RENAME_STATE,
+   "Renommer une sauvegarde instantanée"
+)
+MSG_HASH(
+   MENU_ENUM_SUBLABEL_RENAME_STATE,
+   "Renomme une sauvegarde instantanée depuis l'emplacement actuellement sélectionné."
+)
+MSG_HASH(
    MENU_ENUM_LABEL_VALUE_UNDO_LOAD_STATE,
    "Annuler le chargement de sauvegarde instantanée"
    )

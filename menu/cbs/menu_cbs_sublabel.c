@@ -285,6 +285,7 @@ DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_frame_time_counter_settings_list,  M
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_frame_time_counter_reset_after_fastforwarding,  MENU_ENUM_SUBLABEL_FRAME_TIME_COUNTER_RESET_AFTER_FASTFORWARDING)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_frame_time_counter_reset_after_load_state,  MENU_ENUM_SUBLABEL_FRAME_TIME_COUNTER_RESET_AFTER_LOAD_STATE)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_frame_time_counter_reset_after_save_state,  MENU_ENUM_SUBLABEL_FRAME_TIME_COUNTER_RESET_AFTER_SAVE_STATE)
+DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_frame_time_counter_reset_after_rename_state,  MENU_ENUM_SUBLABEL_FRAME_TIME_COUNTER_RESET_AFTER_RENAME_STATE)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_onscreen_display_settings_list,MENU_ENUM_SUBLABEL_ONSCREEN_DISPLAY_SETTINGS)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_core_settings_list,            MENU_ENUM_SUBLABEL_CORE_SETTINGS)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_information_list_list,         MENU_ENUM_SUBLABEL_INFORMATION_LIST_LIST)
@@ -376,6 +377,7 @@ DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_input_meta_slowmotion_hold_key,   ME
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_input_meta_vrr_runloop_toggle,    MENU_ENUM_SUBLABEL_INPUT_META_VRR_RUNLOOP_TOGGLE)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_input_meta_load_state_key,        MENU_ENUM_SUBLABEL_INPUT_META_LOAD_STATE_KEY)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_input_meta_save_state_key,        MENU_ENUM_SUBLABEL_INPUT_META_SAVE_STATE_KEY)
+DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_input_meta_rename_state_key,      MENU_ENUM_SUBLABEL_INPUT_META_RENAME_STATE_KEY)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_input_meta_fullscreen_toggle_key, MENU_ENUM_SUBLABEL_INPUT_META_FULLSCREEN_TOGGLE_KEY)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_input_meta_close_content_key,     MENU_ENUM_SUBLABEL_INPUT_META_CLOSE_CONTENT_KEY)
 #ifdef HAVE_LAKKA
@@ -849,8 +851,10 @@ DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_close_content,                      
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_savestate_list,                        MENU_ENUM_SUBLABEL_SAVESTATE_LIST)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_state_slot,                            MENU_ENUM_SUBLABEL_STATE_SLOT)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_load_state,                            MENU_ENUM_SUBLABEL_LOAD_STATE)
+DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_rename_state,                          MENU_ENUM_SUBLABEL_RENAME_STATE)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_save_state,                            MENU_ENUM_SUBLABEL_SAVE_STATE)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_undo_load_state,                       MENU_ENUM_SUBLABEL_UNDO_LOAD_STATE)
+DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_undo_rename_state,                     MENU_ENUM_SUBLABEL_UNDO_RENAME_STATE)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_undo_save_state,                       MENU_ENUM_SUBLABEL_UNDO_SAVE_STATE)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_accounts_retro_achievements,           MENU_ENUM_SUBLABEL_ACCOUNTS_RETRO_ACHIEVEMENTS)
 DEFAULT_SUBLABEL_MACRO(action_bind_sublabel_accounts_list,                         MENU_ENUM_SUBLABEL_ACCOUNTS_LIST)
@@ -2084,6 +2088,9 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
             case RARCH_LOAD_STATE_KEY:
                BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_input_meta_load_state_key);
                return 0;
+            case RARCH_RENAME_STATE_KEY:
+               BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_input_meta_rename_state_key);
+               return 0;
             case RARCH_SAVE_STATE_KEY:
                BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_input_meta_save_state_key);
                return 0;
@@ -2636,6 +2643,9 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
          case MENU_ENUM_LABEL_FRAME_TIME_COUNTER_RESET_AFTER_LOAD_STATE:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_frame_time_counter_reset_after_load_state);
             break;
+         case MENU_ENUM_LABEL_FRAME_TIME_COUNTER_RESET_AFTER_RENAME_STATE:
+            BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_frame_time_counter_reset_after_rename_state);
+            break;
          case MENU_ENUM_LABEL_FRAME_TIME_COUNTER_RESET_AFTER_SAVE_STATE:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_frame_time_counter_reset_after_save_state);
             break;
@@ -3094,6 +3104,9 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
          case MENU_ENUM_LABEL_ACCOUNTS_RETRO_ACHIEVEMENTS:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_accounts_retro_achievements);
             break;
+         case MENU_ENUM_LABEL_UNDO_RENAME_STATE:
+            BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_undo_rename_state);
+            break;
          case MENU_ENUM_LABEL_UNDO_SAVE_STATE:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_undo_save_state);
             break;
@@ -3106,6 +3119,9 @@ int menu_cbs_init_bind_sublabel(menu_file_list_cbs_t *cbs,
          case MENU_ENUM_LABEL_RESUME:
          case MENU_ENUM_LABEL_RESUME_CONTENT:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_resume_content);
+            break;
+         case MENU_ENUM_LABEL_RENAME_STATE:
+            BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_rename_state);
             break;
          case MENU_ENUM_LABEL_SAVE_STATE:
             BIND_ACTION_SUBLABEL(cbs, action_bind_sublabel_save_state);

@@ -321,6 +321,13 @@ static const struct retro_keybind retro_keybinds_1[] = {
    {
       NULL, NULL,
       AXIS_NONE, AXIS_NONE, AXIS_NONE,
+      MENU_ENUM_LABEL_VALUE_INPUT_META_RENAME_STATE_KEY, RETROK_UNKNOWN,
+      RARCH_RENAME_STATE_KEY, NO_BTN, NO_BTN, 0,
+      true
+   },
+   {
+      NULL, NULL,
+      AXIS_NONE, AXIS_NONE, AXIS_NONE,
       MENU_ENUM_LABEL_VALUE_INPUT_META_SAVE_STATE_KEY, RETROK_UNKNOWN,
       RARCH_SAVE_STATE_KEY, NO_BTN, NO_BTN, 0,
       true
@@ -910,6 +917,13 @@ static const struct retro_keybind retro_keybinds_1[] = {
    {
       NULL, NULL,
       AXIS_NONE, AXIS_NONE, AXIS_NONE,
+      MENU_ENUM_LABEL_VALUE_INPUT_META_RENAME_STATE_KEY, RETROK_UNKNOWN,
+      RARCH_RENAME_STATE_KEY, NO_BTN, NO_BTN, 0,
+      true
+   },
+   {
+      NULL, NULL,
+      AXIS_NONE, AXIS_NONE, AXIS_NONE,
       MENU_ENUM_LABEL_VALUE_INPUT_META_SAVE_STATE_KEY, RETROK_UNKNOWN,
       RARCH_SAVE_STATE_KEY, NO_BTN, NO_BTN, 0,
       true
@@ -1494,6 +1508,13 @@ static const struct retro_keybind retro_keybinds_1[] = {
       AXIS_NONE, AXIS_NONE, AXIS_NONE,
       MENU_ENUM_LABEL_VALUE_INPUT_META_LOAD_STATE_KEY, RETROK_F4,
       RARCH_LOAD_STATE_KEY, NO_BTN, NO_BTN, 0,
+      true
+   },
+   {
+      NULL, NULL,
+      AXIS_NONE, AXIS_NONE, AXIS_NONE,
+      MENU_ENUM_LABEL_VALUE_INPUT_META_RENAME_STATE_KEY, RETROK_UNKNOWN,
+      RARCH_RENAME_STATE_KEY, NO_BTN, NO_BTN, 0,
       true
    },
    {

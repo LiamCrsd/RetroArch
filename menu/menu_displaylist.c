@@ -3474,6 +3474,12 @@ static int menu_displaylist_parse_load_content_settings(
                   MENU_ENUM_LABEL_LOAD_STATE,
                   MENU_SETTING_ACTION_LOADSTATE, 0, 0, NULL))
                count++;
+            if (menu_entries_append(list,
+                  msg_hash_to_str(MENU_ENUM_LABEL_VALUE_RENAME_STATE),
+                  msg_hash_to_str(MENU_ENUM_LABEL_RENAME_STATE),
+                  MENU_ENUM_LABEL_RENAME_STATE,
+                  MENU_SETTING_ACTION_LOADSTATE, 0, 0, NULL))
+               count++;
          }
 
          if (savestates_enabled &&
@@ -12719,6 +12725,13 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
                      msg_hash_to_str(MENU_ENUM_LABEL_VALUE_SAVE_STATE),
                      msg_hash_to_str(MENU_ENUM_LABEL_SAVE_STATE),
                      MENU_ENUM_LABEL_SAVE_STATE,
+                     MENU_SETTING_ACTION_SAVESTATE, 0, 0, NULL))
+                  count++;
+
+               if (menu_entries_append(info->list,
+                     msg_hash_to_str(MENU_ENUM_LABEL_VALUE_RENAME_STATE),
+                     msg_hash_to_str(MENU_ENUM_LABEL_RENAME_STATE),
+                     MENU_ENUM_LABEL_RENAME_STATE,
                      MENU_SETTING_ACTION_SAVESTATE, 0, 0, NULL))
                   count++;
 
